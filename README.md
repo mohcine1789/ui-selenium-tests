@@ -33,6 +33,8 @@ Purchase a moisturizers successfully :
 4. Fill out the payment details 
 5. Verify the payment was successful
 
+The tests are run in parallel on both Firefox and Chrome browsers.
+
 ### How to execute tests
 
 1. Make sure docker is run on your machine
