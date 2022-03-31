@@ -1,4 +1,4 @@
-# ui-selenium-tests
+# automation-tests
 
 ### Technologies used
 

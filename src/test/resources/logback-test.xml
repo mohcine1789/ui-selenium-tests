@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <Target>System.out</Target>
+        <encoder>
+            <pattern>%-5level [%file:%line] %logger{0} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>myApp.log</file>
+
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="net.lightbody.bmp.proxy" level="WARN"/>
+    <logger name="org.apache.http" level="WARN"/>
+    <logger name="org.jboss.netty" level="WARN"/>
+    <logger name="org.openqa.selenium" level="WARN"/>
+    <logger name="com.gargoylesoftware.htmlunit" level="WARN"/>
+
+    <root level="INFO">
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>
