@@ -8,27 +8,26 @@
 4. [TestNG](https://testng.org/doc/index.html)
 5. [Allure Report](https://github.com/allure-framework/allure-java)
 6. [WebDriverManager](https://github.com/bonigarcia/webdrivermanager)
-7. Selenoid https://github.com/aerokube/selenoid
+7. [Selenoid](https://github.com/aerokube/selenoid)
 ### Framework overview
 
 The framework is a selenium wrapper where every page is represented with a java Class (Page object Model), and selenium methods are sitting in one place where they can be reused.
 
-The tests are run can be run locally or on remote server using Selenoid.
-DriverManager#getDriver() and DriverManager#getDriver(String url)
-
+The tests are run can be run locally DriverManager#getDriver() or on remote server using Selenoid by calling DriverManager#getDriver(String url)
 
 ### Requirements
 
 1. Java JDK
 2. Maven
 3. Docker
+4. [Configuration Manager](https://aerokube.com/cm/latest/)
 
 
 ### Test case
 
 Purchase a moisturizers successfully :
 
-1. Navigate to 
+1. Navigate to https://weathershopper.pythonanywhere.com/
 2. Click on buy moisturizers button
 3. Choose an item => payment frame is shown
 4. Fill out the payment details 
@@ -39,6 +38,18 @@ Purchase a moisturizers successfully :
 1. Make sure docker is run on your machine
 
 2. Start Selenoid
+ 
+ - On Linux and Mac :
+ 
+ ```bash  
+./cm selenoid start --vnc
+
+```
+- On Windows :
+ ```bash  
+/cm.exe selenoid start --vnc
+
+```
 
 3: Run the command line to execute the tests
 ```bash  
