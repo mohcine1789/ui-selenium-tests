@@ -37,9 +37,15 @@ The tests are run in parallel on both Firefox and Chrome browsers.
 
 ### How to execute tests
 
-1. Make sure docker is run on your machine
+1.Clone the project
 
-2. Start Selenoid
+ ```bash  
+git@github.com:mohcine1789/ui-selenium-tests.git
+```
+
+2. Make sure docker is run on your machine
+
+3. Start Selenoid
  
  - On Linux and Mac :
  
@@ -53,7 +59,7 @@ The tests are run in parallel on both Firefox and Chrome browsers.
 
 ```
 
-3: Run the command line to execute the tests
+4. Make sure to be on the same level as pom.xml file. Run the command line to execute the tests
 ```bash  
 mvn clean test
 ```
