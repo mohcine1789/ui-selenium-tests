@@ -8,39 +8,57 @@
 4. [TestNG](https://testng.org/doc/index.html)
 5. [Allure Report](https://github.com/allure-framework/allure-java)
 6. [WebDriverManager](https://github.com/bonigarcia/webdrivermanager)
-7. Selenoid https://github.com/aerokube/selenoid
+7. [Selenoid](https://github.com/aerokube/selenoid)
 ### Framework overview
 
-The framework is a selenium wrapper where every page is represented with a java Class (Page object Model), and selenium methods are sitting in one place where they can be reused.
-
-The tests are run can be run locally or on remote server using Selenoid.
-DriverManager#getDriver() and DriverManager#getDriver(String url)
-
+The framework is a selenium wrapper where every page is represented with a java Class (Page object Model)
+The tests can be run locally by calling DriverManager#getDriver() or on remote server using Selenoid by calling DriverManager#getDriver(String url)
 
 ### Requirements
 
 1. Java JDK
 2. Maven
 3. Docker
+4. [Configuration Manager](https://aerokube.com/cm/latest/)
 
 
 ### Test case
 
 Purchase a moisturizers successfully :
 
-1. Navigate to 
+1. Navigate to https://weathershopper.pythonanywhere.com/
 2. Click on buy moisturizers button
 3. Choose an item => payment frame is shown
 4. Fill out the payment details 
 5. Verify the payment was successful
 
+The tests are run in parallel on both Firefox and Chrome browsers.
+
 ### How to execute tests
 
-1. Make sure docker is run on your machine
+1. Clone the project
 
-2. Start Selenoid
+ ```bash  
+git@github.com:mohcine1789/ui-selenium-tests.git
+```
 
-3: Run the command line to execute the tests
+2. Make sure docker is run on your machine
+
+3. Start Selenoid
+ 
+ - On Linux and Mac :
+ 
+ ```bash  
+./cm selenoid start --vnc
+
+```
+- On Windows :
+ ```bash  
+/cm.exe selenoid start --vnc
+
+```
+
+4. Make sure to be on the same level as pom.xml file. Run the command line to execute the tests
 ```bash  
 mvn clean test
 ```
