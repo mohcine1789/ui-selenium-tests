@@ -11,9 +11,8 @@
 7. [Selenoid](https://github.com/aerokube/selenoid)
 ### Framework overview
 
-The framework is a selenium wrapper where every page is represented with a java Class (Page object Model), and selenium methods are sitting in one place where they can be reused.
-
-The tests are run can be run locally DriverManager#getDriver() or on remote server using Selenoid by calling DriverManager#getDriver(String url)
+The framework is a selenium wrapper where every page is represented with a java Class (Page object Model)
+The tests can be run locally by calling DriverManager#getDriver() or on remote server using Selenoid by calling DriverManager#getDriver(String url)
 
 ### Requirements
 
@@ -37,7 +36,7 @@ The tests are run in parallel on both Firefox and Chrome browsers.
 
 ### How to execute tests
 
-1.Clone the project
+1. Clone the project
 
  ```bash  
 git@github.com:mohcine1789/ui-selenium-tests.git
