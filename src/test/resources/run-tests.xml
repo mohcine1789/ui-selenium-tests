@@ -1,6 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Test suite" parallel="tests" verbose="2" thread-count="2" annotations="JDK">
-
+<suite name="Test suite" parallel="tests" verbose="2" thread-count="3" annotations="JDK">
     <test name="automation-tests-chrome">
         <parameter name="browser" value="chrome"/>
         <classes>

@@ -15,17 +15,15 @@ public abstract class BaseTest {
 
     protected WebDriver driver;
     private DriverManager driverManager;
-    private boolean shouldQuitDriverAfterTestMethod = true;
 
     @SuppressWarnings("UnusedReturnValue")
     protected WebDriver getDriver(String browserName) {
         driverManager = DriverManagerFactory.getManager(Browser.getBrowserByName(browserName));
         log.info("Connecting with browser = {}...", browserName);
-        driver = driverManager.getDriver("http://localhost:4444/wd/hub");
+        driver = driverManager.getDriver();
 
         return driver;
     }
-
 
     protected void quitDriver() {
         driverManager.quitDriver();
@@ -33,9 +31,7 @@ public abstract class BaseTest {
 
     @AfterMethod(alwaysRun = true)
     public void quitDriverAfterTestMethod() {
-        if (shouldQuitDriverAfterTestMethod) {
-            quitDriver();
-        }
+        quitDriver();
     }
 
     @AfterMethod(alwaysRun = true)

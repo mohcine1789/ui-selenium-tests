@@ -12,6 +12,9 @@ public class DriverManagerFactory {
             case CHROME:
                 driverManager.set(new ChromeDriverManagerImpl());
                 break;
+            case FIREFOX:
+                driverManager.set(new FireFoxDriverManagerImpl());
+                break;
             default:
                 driverManager.set(new ChromeDriverManagerImpl());
                 break;

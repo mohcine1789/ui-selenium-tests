@@ -58,7 +58,7 @@ public class ChromeDriverManagerImpl extends DriverManager {
         capabilities.setCapability(CapabilityType.TAKES_SCREENSHOT, true);
         capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, PageLoadStrategy.NORMAL);
         capabilities.setCapability("headless", System.getProperty("headless", "false"));
-        capabilities.setCapability("enableVNC", BooleanUtils.toBoolean(System.getProperty("vnc", "false")));
+        capabilities.setCapability("enableVNC", BooleanUtils.toBoolean(System.getProperty("vnc", "true")));
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         capabilities.setCapability(ChromeOptions.CAPABILITY, options);

@@ -27,7 +27,6 @@ public class FireFoxDriverManagerImpl extends DriverManager {
         if (isNull(driverService.get())) {
             WebDriverManager manager = WebDriverManager.getInstance(DriverManagerType.FIREFOX);
             manager.setup();
-            System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
             driverService.set(new GeckoDriverService.Builder().usingDriverExecutable(new File(manager.getBinaryPath()))
                     .usingAnyFreePort().build());
             try {
@@ -55,7 +54,7 @@ public class FireFoxDriverManagerImpl extends DriverManager {
         capabilities.setCapability(CapabilityType.TAKES_SCREENSHOT, true);
         capabilities.setCapability("headless", System.getProperty("headless", "false"));
         capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, PageLoadStrategy.NORMAL);
-        capabilities.setCapability("enableVNC", BooleanUtils.toBoolean(System.getProperty("vnc", "false")));
+        capabilities.setCapability("enableVNC", BooleanUtils.toBoolean(System.getProperty("vnc", "true")));
         try {
             driverMap.put(currentThread().getId(), new RemoteWebDriver(new URL(url), capabilities));
             maximizeScreenResolution();

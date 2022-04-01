@@ -6,11 +6,8 @@ import pages.ConfirmationPage;
 import pages.HomePage;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
 
 public class CheckoutTest extends BaseTest {
-
-    private static final String PAYMENT_SUCCESS_MESSAGE = "PAYMENT SUCCESS";
 
     @Parameters(value = {"browser"})
     @BeforeMethod(alwaysRun = true)
@@ -29,9 +26,8 @@ public class CheckoutTest extends BaseTest {
                 .fillOutForm()
                 .clickBuyButton();
 
-        assertThat("Payment failed or payment success message is incorrect.",
-                new ConfirmationPage().getConfirmationMessage(),
-                equalTo(PAYMENT_SUCCESS_MESSAGE));
+        assertThat("Payment confirmation failed or message is incorrect.",
+                new ConfirmationPage().isConfirmationMessageDisplayed());
     }
 
 }
